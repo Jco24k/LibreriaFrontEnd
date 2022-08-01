@@ -1,0 +1,36 @@
+<br>
+<div class="container">
+    <div class="alert alert-primary">
+        <h3 class="text-center">Listado de Empleado</h3>
+    </div>
+    <button [routerLink]="['/usuario/formulario']" class="btn btn-primary mt-4">Nuevo Empleado</button>
+    <table class="table table-striped  mt-4 text-center">
+        <thead class="table-dark">
+            <tr>
+                <th>APELLIDOS</th>
+                <th>NOMBRES</th>
+                <th>DNI</th>
+                <th>FECHA DE NACIMIENTO</th>
+                <th>CORREO</th>
+                <th>TELEFONO</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr *ngFor="let usuario of usuarios">
+                <td>{{usuario.app}}&nbsp;{{usuario.apm}}</td>
+                <td>{{usuario.nombres}}</td>
+                <td>{{usuario.dni}}</td>
+                <td>{{usuario.fecha}}</td>
+                <td>{{usuario.correo}}</td>
+                <td>{{usuario.tel}}</td>
+                <td>
+                    <a class="btn btn-primary" [routerLink]="['/usuario/formulario/'+usuario.id]">Actualizar</a>&nbsp;
+                    <a class="btn btn-danger" (click)="eliminar(usuario)">Eliminar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br>

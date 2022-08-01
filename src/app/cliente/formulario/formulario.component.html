@@ -1,0 +1,77 @@
+<div class="container">
+    <div class="card border-warning">
+        <div class="card-header">
+            <div class="alert alert-warning m-1">
+                <h3 class="text-center">{{titulo}}</h3>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <form  [formGroup]="formularioCliente" (ngSubmit)="guardar_cliente()">
+                <h6>Datos Personales</h6>
+                <div class="row m-3">
+                    <div class="col">
+                        <label for="nom" class="from-label">Nombres:</label>
+                        <input type="text" formControlName="nombres" class="form-control box-input" placeholder="Digite tu nombre" id="nombres"
+                            name="nom" tabindex="1" required  >
+                        <div *ngIf="nombres?.invalid && (nombres?.dirty || nombres?.touched)">
+                            <div class="container-error-message box-message" >
+                                EL nombre es requerido y debe tener como Maximo 50 caracteres.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <label for="dni" class="from-label">DNI:</label>
+                        <input type="number" formControlName="dni" class="form-control box-input" placeholder="Digite tu dni" id="dni"
+                            name="dni" tabindex="2" required  maxlength="8">
+                            <div *ngIf="dni?.invalid && (dni?.dirty || dni?.touched)">
+                                <div class="container-error-message box-message" >
+                                    EL dni es requerido y debe contener 8 digitos.
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="row m-3">
+                    <div class="col">
+                        <label for="app" class="from-label">Apellido Paterno:</label>
+                        <input type="text" class="form-control box-input" placeholder="Digite tu apellido" id="app"
+                            name="app" tabindex="3" required formControlName="app" >
+                            <div *ngIf="app?.invalid && (app?.dirty || app?.touched)">
+                                <div class="container-error-message box-message" >
+                                    EL Apellido paterno es requerido y debe contener un maximo de 20 caracteres.
+                                </div>
+                            </div>
+                    </div>
+                    <div class="col">
+                        <label for="apm" class="from-label">Apellido Materno:</label>
+                        <input type="text" class="form-control box-input" placeholder="Digite tu apellido" id="apm"
+                            name="apm" tabindex="4" formControlName="apm" >
+                            <div *ngIf="apm?.invalid && (apm?.dirty || apm?.touched)">
+                                <div class="container-error-message box-message" >
+                                    EL Apellido Materno es requerido y debe contener un maximo de 20 caracteres.
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="row m-3">
+                    <div class="col">
+                        <label for="rol" class="from-label" >Genero</label>
+                        <select #genero name="genero" id="genero" class="form-select" tabindex="5" required >
+                            <option value="MASCULINO">Masculino</option>
+                            <option value="Femenino" >Femenino</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row m-5">
+                    <div class="col mx-5 mb-3">
+                        <button class="btn btn-warning form-control" role="button" tabindex="12">Guardar</button>
+                    </div>
+                    <div class="col mx-5 mb-3">
+                        <button [routerLink]="['/usuario/listar']" class="btn btn-danger form-control"  tabindex="13">Cancelar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

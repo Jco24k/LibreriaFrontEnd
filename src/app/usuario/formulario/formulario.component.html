@@ -1,0 +1,103 @@
+<div class="container">
+    <div class="card border-primary">
+        <div class="card-header">
+            <div class="alert alert-primary m-1">
+                <h3 class="text-center">{{titulo}}</h3>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <form (ngSubmit)="guardar_usuario()"
+            enctype="multipart/form-data">
+                <h6>Datos Personales</h6>
+                <div class="row m-3">
+                    <div class="col">
+                        <label for="nom" class="from-label">Nombres:</label>
+                        <input type="text" [(ngModel)]="usuario.nombres" class="form-control box-input" placeholder="Digite tu nombre" id="nombres"
+                            name="nom" tabindex="1" required  >
+                    </div>
+                    <div class="col">
+                        <label for="dni" class="from-label">DNI:</label>
+                        <input type="number" class="form-control box-input" placeholder="Digite tu dni" id="dni"
+                            name="dni" tabindex="2" required [(ngModel)]="usuario.dni" maxlength="8">
+                    </div>
+                </div>
+                <div class="row m-3">
+                    <div class="col">
+                        <label for="app" class="from-label">Apellido Paterno:</label>
+                        <input type="text" class="form-control box-input" placeholder="Digite tu apellido" id="app"
+                            name="app" tabindex="3" required [(ngModel)]="usuario.app" >
+
+                    </div>
+                    <div class="col">
+                        <label for="apm" class="from-label">Apellido Materno:</label>
+                        <input type="text" class="form-control box-input" placeholder="Digite tu apellido" id="apm"
+                            name="apm" tabindex="4" [(ngModel)]="usuario.apm" >
+                    </div>
+                </div>
+                <div class="row m-3">
+                    <div class="col">
+                        <label for="fecha" class="from-label">Fecha de Nacimiento:</label>
+                        <input type="date" class="form-control" id="fecha" name="fecha" tabindex="5" required
+                        [(ngModel)]="usuario.fecha" >
+                    </div>
+                    <div class="col">
+                        <label for="rol" class="from-label" ></label>
+                        
+                        <select class="form-select" id="rol" name="rol" [(ngModel)]="rol" required tabindex="6">
+                            <option class="text-dark" [value]="r.id" *ngFor="let r of roles">{{r.descripcion}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row m-3">
+                    <div class="col">
+                        <label for="tel" class="from-label">Telefono:</label>
+                        <input type="number" class="form-control box-input" placeholder="Digite tu telefono" id="tel"
+                            name="tel" tabindex="7" required [(ngModel)]="usuario.tel" [maxlength]="length_telefono" >
+                    </div> 
+                    <div class="col">
+                        <label for="file" class="from-label">Foto:</label>
+                        <input type="file" name="file" class="form-control" 
+                            id="file" tabindex="8" #foto>
+                    </div>
+                </div>
+                <div class="row m-3">
+                    <div class="col">
+                        <label for="correo" class="from-label">Correo:</label>
+                        <input type="email" class="form-control" placeholder="Digite tu Correo" id="correo"
+                            name="correo" tabindex="9" required [(ngModel)]="usuario.correo" >
+                    </div>
+                    <div class="col">
+                        <label for="rol" class="from-label" >Genero</label>
+                        <select #genero name="genero" id="genero" class="form-select" tabindex="5" required >
+                            <option value="MASCULINO">Masculino</option>
+                            <option value="FEMENINO" >Femenino</option>
+                        </select>
+                    </div>
+                </div>
+                <h6>Datos del Sistema</h6>
+                <div class="row m-3">
+                    <div class="col">
+                        <label for="username" class="from-label">Usuario:</label>
+                        <input type="text" class="form-control box-input" placeholder="Digite tu usuario" id="username"
+                            name="username" tabindex="10"  required [(ngModel)]="usuario.username" >
+                    </div>
+                    <div class="col">
+                        <label for="password" class="from-label">Password:</label>
+                        <input type="password" class="form-control box-input" placeholder="Digite tu contraseÃ±a" id="password"
+                            name="password" tabindex="11" required [(ngModel)]="usuario.password" >
+                    </div>
+                     <input type="hidden" id="id" name="id" [(ngModel)]="usuario.id" >
+                </div>
+                <div class="row m-5">
+                    <div class="col mx-5 mb-3">
+                        <button class="btn btn-primary form-control" role="button" tabindex="12">Guardar</button>
+                    </div>
+                    <div class="col mx-5 mb-3">
+                        <button [routerLink]="['/usuario/listar']" class="btn btn-danger form-control"  tabindex="13">Cancelar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

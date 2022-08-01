@@ -1,0 +1,34 @@
+.input-incorrecto{
+    border: 2px solid red !important;
+}
+
+.input-correcto{
+    border: 2px solid rgb(0, 202, 0) !important;
+}
+.box-message{
+    color: red;
+    font-weight:600;
+    text-align: center;
+}
+.box-input{
+    outline: 1px !important;
+    border-color: none;
+    border-radius: none;
+}
+
+.box-input:focus{
+    outline: 1px !important;
+    border-radius: none;
+    box-shadow: none !important;
+}
+
+.msj-color{
+    color: red;
+    font-weight: 1800;
+    text-align: center;
+}
+
+
+.hoover-a:hover{
+    color: black !important;
+}
