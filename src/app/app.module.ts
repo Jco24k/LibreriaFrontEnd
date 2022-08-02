@@ -8,7 +8,9 @@ import { FormularioComponent as clienteForm } from './cliente/formulario/formula
 import { FormularioComponent as UsuarioForm } from './usuario/formulario/formulario.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ListarComponent } from './usuario/listar/listar.component';
+import { ListarComponent as ListarUsuario } from './usuario/listar/listar.component';
+import { ListarComponent as ListarClientes } from './cliente/listar/listar.component';
+
 import { InicioComponent } from './inicio/inicio.component';
 const routes:Routes=[
   {path:'',redirectTo:'inicio',pathMatch:'full'},
@@ -16,7 +18,8 @@ const routes:Routes=[
   {path:'cliente/formulario/:id', component:clienteForm},
   {path:'usuario/formulario', component:UsuarioForm},
   {path:'usuario/formulario/:id', component:UsuarioForm},
-  {path:'usuario/listar', component:ListarComponent},
+  {path:'usuario/listar', component:ListarUsuario},
+  {path:'cliente/listar', component:ListarClientes},
   {path:'inicio', component:InicioComponent}
 
 
@@ -28,7 +31,8 @@ const routes:Routes=[
     AppComponent,
     clienteForm,
     UsuarioForm,
-    ListarComponent,
+    ListarUsuario,
+    ListarClientes,
     InicioComponent
   ],
   imports: [

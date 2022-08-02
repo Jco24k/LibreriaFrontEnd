@@ -1,0 +1,35 @@
+<br>
+<div class="container">
+    <div class="alert alert-primary">
+        <h3 class="text-center">Listado de Clientes</h3>
+    </div>
+    <button [routerLink]="['/cliente/formulario']" class="btn btn-primary mt-4">Nuevo Cliente</button>
+    <table class="table table-striped  mt-4 text-center">
+        <thead class="table-dark">
+            <tr>
+                <th>APELLIDOS</th>
+                <th>NOMBRES</th>
+                <th>DNI</th>
+                <th>GENERO</th>
+                <td>ESTADO</td>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr *ngFor="let cli of clientes">
+                <td>{{cli.app}}&nbsp;{{cli.apm}}</td>
+                <td>{{cli.nombres}}</td>
+                <td>{{cli.dni}}</td>
+                <td>{{cli.genero}}</td>
+                <td>{{cli.estado}}</td>
+                <td>
+                    <a class="btn btn-primary" [routerLink]="['/cliente/formulario/'+cli.id]">Actualizar</a>&nbsp;
+                    <a class="btn btn-danger" (click)="eliminar(cli)">Eliminar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br>
