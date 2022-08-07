@@ -1,0 +1,54 @@
+
+<div class="d-flex justify-content-around">
+    <div class="p-2">
+        <app-listar-pro></app-listar-pro>
+    </div>
+    <div class="p-2">
+        <div class="col">
+            <form action="" [formGroup]="formularioVentas">
+            <label for="fecha" class="from-label">Fecha:</label>
+            <input type="date" class="form-control" id="fecha" name="fecha" tabindex="5" required
+            formControlName="fecha_emision" >
+            <input type="number" class="form-control box-input" placeholder="Digite el dni del cliente" id="cliente"
+            formControlName="cliente" name="cliente" tabindex="2" required  maxlength="8">
+            <button class="btn btn-primary form-control" role="button" tabindex="12" (click)="buscarCliente()">Buscar Cliente</button>
+            <input type="text" class="form-control box-input" placeholder="nombre" id="nombre"
+            name="nombre" tabindex="2" required value="{{datos_cli}}" maxlength="8" disabled>
+            </form>
+            <div class="container" >
+                <table class="table table-striped  mt-4 text-center">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>NOMBRE</th>
+                            <th>CANTIDAD</th>
+                            <th>PRECIO</th>
+                            <th>DESCUENTO x PRODUCTO</th>
+                            <th>SUBTOTAL</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let det of lista_compras">
+                            <td>{{det.producto.nombre}}</td>
+                            <td>{{det.cantidad}}</td>
+                            <td>{{det.precio}}</td>
+                            <td [textContent]="(det.tipo_descuento == 'D')? 'S/. '+det.descuento:det.descuento+' %'"></td>
+                            <td>{{det.subtotal}}</td>
+                            <td>
+                                <button class="box-boton-mas" type="button" (click)="aumentarDetalleVenta(det)" >
+                                    <i class="box-mas ion-plus"></i>
+                                </button>
+                                &nbsp;
+                                <button class="box-boton-menos" type="button" (click)="disminuirDetalleVenta(det)">
+                                    <i class="box-menos ion-minus"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br>
+        </div>
+        
+    </div>
+  </div>

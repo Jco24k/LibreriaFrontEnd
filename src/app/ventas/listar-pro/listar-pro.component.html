@@ -1,0 +1,38 @@
+<input type="text" class="box-input" placeholder="Nombre de producto" id="producto"
+        #producto_buscar>
+<button class="btn btn-primary" role="button" tabindex="12" (click)="buscarProducto()">Buscar Producto</button>
+<br>
+<div class="container" *ngIf="consultas_pro.length !=0">
+    <table class="table table-striped  mt-4 text-center">
+        <thead class="table-dark">
+            <tr>
+                <th>NOMBRE</th>
+                <th>DESCRIPCION</th>
+                <th>STOCK</th>
+                <th>PRECIO</th>
+                <th>TIPO DE DESCUENTO</th>
+                <th>DESCUENTO</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            
+                <tr *ngFor="let pro of consultas_pro">
+                    <td>{{pro.nombre}}</td>
+                    <td>{{pro.descripcion}}</td>
+                    <td>{{pro.stock}}</td>
+                    <td>{{pro.precio}}</td>
+                    <td><select #tipo_descuento name="tipo_descuento" id="tipo_descuento" class="form-select" tabindex="5" >
+                        <option value="D">DINERO</option>
+                        <option value="P">PORCENTAJE</option>
+                    </select></td>
+                    <td><input type="text" class="form-control box-input" placeholder="descuento" id="descuento"
+                        #descuento_pro value="0"></td>
+                    <td>
+                        <button class="btn btn-primary form-control" type="button" tabindex="12" (click)="agregarProducto(pro)">Agregar</button>
+                    </td>
+                </tr>
+        </tbody>
+    </table>
+</div>
+<br>

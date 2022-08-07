@@ -39,6 +39,9 @@ export class UsuarioService {
   Buscar_x_dni(dni: String):Observable<Usuario>{
     return this.http.get<Usuario>(this.urlEndPoint+'/dni/'+dni);
   }
+  Buscar_x_username(username: String):Observable<Usuario>{
+    return this.http.get<Usuario>(this.urlEndPoint+'/username/'+username);
+  }
   EliminarUsuario(id:number):Observable<Usuario>{
     return this.http.delete<Usuario>(this.urlEndPoint+"/"+id);
   }

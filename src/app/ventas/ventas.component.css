@@ -1,0 +1,28 @@
+
+
+.box-mas{
+    color: rgb(14, 197, 14);
+    font-size: 25px;
+    
+}
+.box-menos{
+    color: rgb(209, 18, 18);
+    font-size: 25px;
+}
+
+.box-boton-menos{
+    border: 1px solid rgb(209, 18, 18);
+    margin: 0px;
+    padding: 0px 12px;
+    border-radius: 5px;
+}
+.box-boton-mas{
+    border: 1px solid rgb(14, 197, 14);
+    margin: 0px;
+    padding: 0px 12px;
+    border-radius: 5px;
+}
+
+td{
+    padding: auto;
+}

@@ -9,4 +9,6 @@ export class AppComponent {
   title = 'appEvaluacion';
   desarrollador = 'JESUS ALEXANDER CORONADO MORAN'
   anio='2022'
+
+  
 }
