@@ -19,12 +19,16 @@ export class ProductoService {
     return this.http.get<Producto[]>(this.urlEndPoint);
   }
 
+  listarProductosAlmacen(almacen:String):Observable<Producto[]>{
+    return this.http.get<Producto[]>(this.urlEndPoint+'/almacen/'+almacen);
+  }
+
   BuscarProducto(id:number):Observable<Producto>{
     return this.http.get<Producto>(this.urlEndPoint+"/"+id);
   }
 
-  Buscar_x_nombre(nombre:string):Observable<Producto[]>{
-    return this.http.get<Producto[]>(this.urlEndPoint+"/nombre/"+nombre);
+  Buscar_x_nombre(marca:string):Observable<Producto[]>{
+    return this.http.get<Producto[]>(this.urlEndPoint+"/marca/"+marca);
   }
   
   ActualizarProducto(producto:Producto,id: Number):Observable<Producto>{

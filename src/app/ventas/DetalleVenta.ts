@@ -1,10 +1,8 @@
-import { Producto } from "../producto/producto";
 
 export class DetalleVenta{
-    public id_cabecera:number;
-    constructor(public producto:Producto,public cantidad:number,
+    constructor(public idCabecera:number,public idProducto:number,public cantidad:number,
         public precio:number,public tipo_descuento: string,
-        public descuento:number, public subtotal: number){
+        public descuento:number, public sub_total: number){
         
     }
 }

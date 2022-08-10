@@ -42,7 +42,7 @@ const routes:Routes=[
     HttpClientModule,
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule,BrowserModule,
     RouterModule.forRoot(routes)
   ],
   providers: [UsuarioService],

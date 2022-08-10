@@ -1,3 +1,8 @@
+<!-- <input type="text" class="box-input input__buscador" placeholder="Nombre de producto" id="producto"
+        #producto_buscar (keyup)="buscarProducto()">
+    <button class="btn box-input btn__buscador" role="button" tabindex="12" (click)="buscarProducto()">
+        <i class="ion-ios-search-strong"></i>
+    </button> -->
 
 <div class="d-flex justify-content-around">
     <div class="p-2">
@@ -6,49 +11,79 @@
     <div class="p-2">
         <div class="col">
             <form action="" [formGroup]="formularioVentas">
-            <label for="fecha" class="from-label">Fecha:</label>
-            <input type="date" class="form-control" id="fecha" name="fecha" tabindex="5" required
-            formControlName="fecha_emision" >
-            <input type="number" class="form-control box-input" placeholder="Digite el dni del cliente" id="cliente"
-            formControlName="cliente" name="cliente" tabindex="2" required  maxlength="8">
-            <button class="btn btn-primary form-control" role="button" tabindex="12" (click)="buscarCliente()">Buscar Cliente</button>
-            <input type="text" class="form-control box-input" placeholder="nombre" id="nombre"
-            name="nombre" tabindex="2" required value="{{datos_cli}}" maxlength="8" disabled>
+                <h5 class="box-subtitulo">Datos del Cliente</h5>
+                <div class="d-flex justify-content-between mb-4">
+                    <div class="d-flex box-busqueda btn__buscador">
+                        <input type="number" class="box-input" placeholder="Dni del cliente" id="cliente"
+                            formControlName="cliente" name="cliente" tabindex="2" required maxlength="8">
+                        <button class="btn box-input" role="button" tabindex="12" (click)="buscarCliente()">
+                            <i class="ion-ios-search-strong"></i>
+                        </button>
+                    </div>
+                    <div class="d-flex input__buscador">
+                        <input type="text" class="form-control box-input text-center" placeholder="Nombre del Cliente"
+                            id="nombre" name="nombre" tabindex="2" required value="{{datos_cli}}" maxlength="8"
+                            disabled>
+                    </div>
+                </div>
+                <h5 class="box-subtitulo">Fecha de Emision</h5>
+                <input readonly type="disable" class="form-control" id="fecha" name="fecha" tabindex="5" required
+                    formControlName="fecha_emision">
             </form>
-            <div class="container" >
-                <table class="table table-striped  mt-4 text-center">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>NOMBRE</th>
-                            <th>CANTIDAD</th>
-                            <th>PRECIO</th>
-                            <th>DESCUENTO x PRODUCTO</th>
-                            <th>SUBTOTAL</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let det of lista_compras">
-                            <td>{{det.producto.nombre}}</td>
-                            <td>{{det.cantidad}}</td>
-                            <td>{{det.precio}}</td>
-                            <td [textContent]="(det.tipo_descuento == 'D')? 'S/. '+det.descuento:det.descuento+' %'"></td>
-                            <td>{{det.subtotal}}</td>
-                            <td>
-                                <button class="box-boton-mas" type="button" (click)="aumentarDetalleVenta(det)" >
-                                    <i class="box-mas ion-plus"></i>
-                                </button>
-                                &nbsp;
-                                <button class="box-boton-menos" type="button" (click)="disminuirDetalleVenta(det)">
-                                    <i class="box-menos ion-minus"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <hr>
+            <div class="box-table-global">
+                <div class="box-table">
+                    <div>
+                        <table class="table table-striped text-center">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>ITEM</th>
+                                    <th>NOMBRE</th>
+                                    <th>CANTIDAD</th>
+                                    <th>PRECIO</th>
+                                    <th>DESCUENTO x PRODUCTO</th>
+                                    <th>SUBTOTAL</th>
+                                    <th>ACCION</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let det of lista_compras;let i=index" (dblclick)="eliminarCompraItem(i)">
+                                    <td>{{i+1}}</td>
+                                    <td>{{det.producto.descripcion}}</td>
+                                    <td>{{det.cantidad}}</td>
+                                    <td>{{det.precio}}</td>
+                                    <td
+                                        [textContent]="(det.tipo_descuento == 'D')? 'S/. '+det.descuento:det.descuento+' %'">
+                                    </td>
+                                    <td>{{det.subtotal  | currency:'PEN':'S/.':'1.2-2'}}</td>
+                                    <td>
+                                        <button class="box-boton-mas" type="button" (click)="aumentarDetalleVenta(det)">
+                                            <i class="box-mas ion-plus"></i>
+                                        </button>
+                                        &nbsp;
+                                        <button class="box-boton-menos" type="button"
+                                            (click)="disminuirDetalleVenta(det)">
+                                            <i class="box-menos ion-minus"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-            <br>
+            <hr>
+            <div class="d-flex justify-content-between">
+                <div class="d-flex box__btns_vnt">
+                    <button class="form-control btn__agregar" type="button" tabindex="12" (click)="generarVenta()">Generar Venta</button>
+                    <button class="form-control btn__agregar btn__cancelar" type="button" tabindex="12">Cancelar</button>
+                </div>
+                <div class="d-flex justify-content-around box__total">
+                    <h5 >Total a Pagar</h5>
+                    <h3>{{calcularTotal()  | currency:'PEN':'S/.':'1.2-2'}}</h3>
+                </div>
+            </div>
         </div>
-        
+
     </div>
-  </div>
+</div>

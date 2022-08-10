@@ -26,3 +26,78 @@
 td{
     padding: auto;
 }
+
+
+.box-subtitulo{
+    color: grey;
+}
+.box-td:hover{
+    background-color: rgba(173, 173, 173, 0.815);
+}
+.input__buscador{
+    width: 50%;
+}
+
+.btn__buscador{
+    width: 40%;
+    text-align: right;
+}
+.box-busqueda{
+    align-items: center;
+    justify-content: space-between !important;
+    padding: 2px;
+    box-shadow: 3px 3px 3px 3px #b3b1b1;
+    background-color: white;
+}
+
+.box-input{
+    border: none;
+    outline: none;  
+    padding: 5px 10px;
+    
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+input[type=number] { -moz-appearance:textfield; }
+
+.box__empleado{
+    align-items: center;
+}
+
+.box-table-global{
+    overflow: auto;
+    height: 210px;
+    padding: 10px;
+}
+
+.box-table{
+    height: auto;
+}
+
+.btn__agregar{
+    background-color: #012168;
+    color: white;
+    font-weight: 500;
+}
+
+.btn__agregar:hover{
+    background-color: #1e63f7;
+}
+
+.box__total{
+    width: 50%;
+    align-items: center;
+}
+.box__btns_vnt{
+    width:  40%;
+}
+
+.btn__cancelar{
+    background-color: red;
+}
+.btn__cancelar:hover{
+    background-color: rgb(250, 92, 0);
+}
